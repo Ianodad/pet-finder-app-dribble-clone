@@ -14,7 +14,7 @@ class ColorConstant {
   static Color? primaryYellowLight = fromHex('#ffe483');
   static Color? primaryYellow200 = fromHex('#fdf2cc');
   static Color? successGreen = fromHex('#65dc41');
-  static Color? successBlue = fromHex('#a4e0f1');
+  static Color? blueLight = fromHex('#a4e0f1');
   static Color? blueCoolMint = fromHex('#e0f0f5');
   static Color? purple = fromHex('#635bac');
   static Color? orange = fromHex('#f3b051');
