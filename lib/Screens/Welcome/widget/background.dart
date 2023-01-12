@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_finder_app/utils/color_constants.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
@@ -15,6 +16,7 @@ class Background extends StatelessWidget {
       height: size.height,
       width: double.infinity,
       child: Stack(
+        alignment: Alignment.center,
         children: <Widget>[
           Positioned(
               top: 90,
