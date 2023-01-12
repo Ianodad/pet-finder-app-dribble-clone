@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:pet_finder_app/Screens/Welcome/widget/background.dart';
+import 'package:pet_finder_app/Screens/Welcome/widget/stacked_cards.dart';
 // import 'package:flutter_svg/svg.dart';
-// import 'package:pet_finder_app/utils/color_constants.dart';
+import 'package:pet_finder_app/utils/color_constants.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -10,11 +13,6 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     // int totalWidth = 300;
-    double dashWidth = 10;
-    int emptyWidth = 5;
-    double dashHeight = 2;
-    Color dashColor = Colors.black;
-
     return Background(
       child: SafeArea(
         child: SizedBox(
@@ -24,127 +22,66 @@ class Body extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             // height: size.height * .9,
             children: [
-              Container(
-                height: size.height * .45,
-                decoration: BoxDecoration(
-                  // color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  // border: Border.all(color: Colors.black),
+              Transform.rotate(
+                angle: 0.03,
+                child: StackedCards(
+                  child: SizedBox(
+                    width: 10,
+                    height: 10,
+                    child: Image.asset('assets/images/orbit_background.png',
+                        width: 30, height: 40),
+                  ),
                 ),
-                child: LayoutBuilder(
-                  builder: (context, constraints) => Stack(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: constraints.maxWidth * .6,
-                            height: constraints.maxHeight * .5,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.black, width: 3),
-                            ),
-                          ),
-                        ],
+              ),
+              const SizedBox(height: 14),
+              Transform.rotate(
+                angle: 3.11,
+                child: StackedCards(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: ColorConstant.primaryYellow,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(30.0),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                    ),
+                    child: Stack(
+                      children: [
+                        LayoutBuilder(
+                          builder: (context, constraints) => Row(
                             children: [
-                              Container(
-                                width: constraints.maxWidth * .8,
-                                height: constraints.maxHeight * .977,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30),
-                                  border:
-                                      Border.all(color: Colors.black, width: 3),
-                                ),
-                              ),
+                              SizedBox(width: constraints.maxWidth * .15),
+                              VerticalLines(width: constraints.maxWidth * .15),
+                              SizedBox(width: constraints.maxWidth * .15),
+                              VerticalLines(width: constraints.maxWidth * .15),
+                              SizedBox(width: constraints.maxWidth * .15),
+                              VerticalLines(width: constraints.maxWidth * .15),
                             ],
                           ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                width: constraints.maxWidth * .95,
-                                height: constraints.maxHeight * .94,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.vertical(
-                                      top: Radius.circular(30.0)),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black,
-                                        offset: Offset(3, -3),
-                                        spreadRadius: 0,
-                                        blurRadius: 0),
-                                    BoxShadow(
-                                        color: Colors.black,
-                                        offset: Offset(-3, -3),
-                                        spreadRadius: 0,
-                                        blurRadius: 0)
-                                  ],
-                                ),
-                                // ignore: avoid_unnecessary_containers
-                                child: LayoutBuilder(
-                                  builder: (context, constraints) => Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        verticalDirection:
-                                            VerticalDirection.down,
-                                        children: List.generate(
-                                          constraints.maxWidth ~/
-                                              (dashWidth + emptyWidth),
-                                          (_) => Container(
-                                            width: 10,
-                                            height: dashHeight,
-                                            color: dashColor,
-                                            margin: EdgeInsets.only(
-                                                left: emptyWidth / 2,
-                                                right: emptyWidth / 2),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+                        ),
+                        LayoutBuilder(
+                          builder: (context, constraints) => Image.asset(
+                            'assets/images/confeti.png',
+                            width: constraints.maxWidth * .9,
+                            height: constraints.maxHeight * .9,
                           ),
-                        ],
-                      ),
-                      // const Positioned(
-                      //   bottom: -8,
-                      //   right: -8,
-                      //   child: CircleAvatar(
-                      //     radius: 16,
-                      //     backgroundColor: Colors.white,
-                      //     foregroundColor: Colors.white,
-                      //   ), //CircularAvatar
-                      // ),
-                      // const Positioned(
-                      //   bottom: -8,
-                      //   left: -8,
-                      //   child: CircleAvatar(
-                      //     radius: 16,
-                      //     backgroundColor: Colors.white,
-                      //     foregroundColor: Colors.white,
-                      //   ), //CircularAvatar
-                      // ),
-                    ],
+                        ),
+                        Transform.rotate(
+                            angle: -3.1,
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("Lets go find new pet"),
+                                  Expanded(
+                                    child: Text(
+                                        "The secret to making new friends is as simple as being open to it. Here are things you can do to fill your calender."),
+                                  )
+                                ],
+                              ),
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -160,6 +97,27 @@ class Body extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class VerticalLines extends StatelessWidget {
+  const VerticalLines({super.key, required this.width});
+
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: 0.5,
+      child: Container(
+          width: width,
+          decoration: BoxDecoration(
+            color: ColorConstant.flashWhite,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(30.0),
+            ),
+          )),
     );
   }
 }
