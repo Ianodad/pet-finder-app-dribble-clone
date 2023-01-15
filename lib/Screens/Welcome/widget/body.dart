@@ -66,20 +66,37 @@ class Body extends StatelessWidget {
                           ),
                         ),
                         Transform.rotate(
-                            angle: -3.1,
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                // crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text("Lets go find new pet"),
-                                  Expanded(
-                                    child: Text(
-                                        "The secret to making new friends is as simple as being open to it. Here are things you can do to fill your calender."),
-                                  )
-                                ],
+                          angle: -3.1,
+                          child: LayoutBuilder(
+                            builder: (context, constraints) => Container(
+                              width: constraints.maxWidth * .9,
+                              height: constraints.maxHeight * .9,
+                              padding: EdgeInsets.all(10.0),
+                              alignment: Alignment.center,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("Lets go find new pet"),
+                                    SizedBox(height: 20),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        "The secret to making new friends is as simple as being open to it. Here are things you can do to fill your calender.",
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: null,
+                                      child: Text('TextButton'),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ))
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
