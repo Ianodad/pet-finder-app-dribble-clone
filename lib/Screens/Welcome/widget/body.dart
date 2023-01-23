@@ -6,6 +6,8 @@ import 'package:pet_finder_app/Screens/Welcome/widget/stacked_cards.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:pet_finder_app/utils/color_constants.dart';
 
+import 'package:pet_finder_app/Screens/signin.dart';
+
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -78,8 +80,16 @@ class Body extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text("Lets go find new pet"),
-                                    SizedBox(height: 20),
+                                    SizedBox(
+                                        height: constraints.maxHeight * .1),
+                                    Text(
+                                      "Lets go find new pet",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                        height: constraints.maxHeight * .1),
                                     Expanded(
                                       flex: 1,
                                       child: Text(
@@ -87,10 +97,76 @@ class Body extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
-                                    TextButton(
-                                      onPressed: null,
-                                      child: Text('TextButton'),
-                                    )
+                                    Stack(
+                                      children: [
+                                        Positioned(
+                                          top: 16,
+                                          left: 12,
+                                          width: constraints.maxWidth * .61,
+                                          height: 45,
+                                          child: Container(
+                                            height: 33,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 1.0),
+                                            ),
+                                            child: const Text(
+                                              'Get Started',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 13.0),
+                                            ),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) {
+                                                  return SigninScreen();
+                                                },
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            width: constraints.maxWidth * .6,
+                                            decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 2.0),
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 10, horizontal: 15),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: <Widget>[
+                                                Text(
+                                                  'Get Started',
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w700,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Colors.white,
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
