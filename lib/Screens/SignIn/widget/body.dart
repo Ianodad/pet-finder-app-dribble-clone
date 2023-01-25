@@ -35,6 +35,7 @@ class Body extends StatelessWidget {
                         children: [
                           emailField(),
                           passwordsField(),
+                          SizedBox(height: 20),
                           submitButton(),
                         ],
                       ),
@@ -68,23 +69,38 @@ Widget passwordsField() {
 
 Widget submitButton() {
   return LayoutBuilder(
-    builder: (context, constraints) => Stack(
-      children: [
-        Container(
-          width: constraints.maxWidth * .6,
-          height: constraints.maxHeight * .3,
-          padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.black, width: 2),
+    builder: (context, constraints) => SizedBox(
+      width: constraints.maxWidth,
+      height: 130,
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: <Widget>[
+          Positioned(
+            top: 6,
+            left: 24,
+            child: Container(
+              width: constraints.maxWidth * 0.88,
+              height: 45,
+              // color: Colors.yellow,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+            ),
           ),
-        ),
-        ElevatedButton(
-          onPressed: () => {},
-          child: Text("Submit"),
-        ),
-      ],
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+                minimumSize: Size(constraints.maxWidth * 0.90, 45),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                side: BorderSide(color: Colors.black, width: 2)),
+            child: Text("Submit"),
+          ),
+        ],
+      ),
     ),
   );
 }
