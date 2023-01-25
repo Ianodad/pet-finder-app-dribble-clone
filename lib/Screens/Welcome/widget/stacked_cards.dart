@@ -92,7 +92,7 @@ class StackedCards extends StatelessWidget {
                       // ignore: avoid_unnecessary_containers
                       child: Stack(
                         children: [
-                          Container(
+                          SizedBox(
                             width: constraints.maxWidth * .95,
                             height: constraints.maxHeight * .94,
                             child: child,
@@ -127,24 +127,6 @@ class StackedCards extends StatelessWidget {
                 ),
               ],
             ),
-            // const Positioned(
-            //   bottom: -8,
-            //   right: -8,
-            //   child: CircleAvatar(
-            //     radius: 16,
-            //     backgroundColor: Colors.white,
-            //     foregroundColor: Colors.white,
-            //   ), //CircularAvatar
-            // ),
-            // const Positioned(
-            //   bottom: -8,
-            //   left: -8,
-            //   child: CircleAvatar(
-            //     radius: 16,
-            //     backgroundColor: Colors.white,
-            //     foregroundColor: Colors.white,
-            //   ), //CircularAvatar
-            // ),
           ],
         ),
       ),

@@ -6,7 +6,7 @@ import 'package:pet_finder_app/Screens/Welcome/widget/stacked_cards.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:pet_finder_app/utils/color_constants.dart';
 
-import 'package:pet_finder_app/Screens/signin.dart';
+import 'package:pet_finder_app/Screens/SignIn/signin.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -178,14 +178,6 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ),
-              // Container(
-              //   height: size.height * .3,
-              //   decoration: BoxDecoration(
-              //     color: Colors.green,
-              //     borderRadius: BorderRadius.circular(20),
-              //     border: Border.all(color: Colors.black),
-              //   ),
-              // ),
             ],
           ),
         ),
