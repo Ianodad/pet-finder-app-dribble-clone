@@ -29,17 +29,47 @@ class Body extends StatelessWidget {
               SizedBox(height: size.width * .1),
               CardBody(
                 child: Container(
-                    margin: EdgeInsets.all(20.0),
-                    child: Form(
-                      child: Column(
-                        children: [
-                          emailField(),
-                          passwordsField(),
-                          SizedBox(height: 20),
-                          submitButton(),
-                        ],
+                  // height: 200,
+                  margin: EdgeInsets.only(right: 20.0, left: 20.0, top: 40.0),
+                  child: Column(
+                    children: [
+                      Form(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Email"),
+                            emailField(),
+                            Text("Password"),
+                            passwordsField(),
+                            SizedBox(height: 20),
+                            submitButton(),
+                          ],
+                        ),
                       ),
-                    )),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.horizontal(
+                                  right: Radius.circular(10),
+                                  left: Radius.circular(10),
+                                ),
+                              ),
+                            ),
+                            child: Text("Gmail"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Facebook"),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               )
             ],
           ),
@@ -55,6 +85,23 @@ Widget emailField() {
     decoration: InputDecoration(
       labelText: "Email Address",
       hintText: 'userName@example.com',
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white, width: 2.0),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      suffixIcon: Icon(
+        Icons.check_circle,
+        color: Colors.green,
+      ),
+      contentPadding: EdgeInsets.only(
+        top: 14.0,
+        bottom: 14.0,
+        left: 14.0,
+        right: 14.0,
+      ),
+      border: OutlineInputBorder(),
+      filled: true,
+      fillColor: Colors.grey.shade100,
     ),
   );
 }
@@ -62,8 +109,29 @@ Widget emailField() {
 Widget passwordsField() {
   return TextFormField(
     obscureText: true,
-    decoration:
-        InputDecoration(labelText: "Enter Password", hintText: "Password"),
+    decoration: InputDecoration(
+      labelText: "Enter Password",
+      hintText: "Password",
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white, width: 2.0),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      suffixIcon: Icon(
+        Icons.check_circle,
+        color: Colors.green,
+      ),
+      contentPadding: EdgeInsets.only(
+        top: 14.0,
+        bottom: 14.0,
+        left: 14.0,
+        right: 14.0,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      filled: true,
+      fillColor: Colors.grey.shade100,
+    ),
   );
 }
 
