@@ -71,8 +71,8 @@ class Body extends StatelessWidget {
                           angle: -3.1,
                           child: LayoutBuilder(
                             builder: (context, constraints) => Container(
-                              width: constraints.maxWidth * .9,
-                              height: constraints.maxHeight * .9,
+                              width: constraints.maxWidth * .95,
+                              height: constraints.maxHeight * .95,
                               padding: EdgeInsets.all(10.0),
                               alignment: Alignment.center,
                               child: Center(
@@ -117,7 +117,7 @@ class Body extends StatelessWidget {
                                             child: const Text(
                                               'Get Started',
                                               style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: ColorConstant.black,
                                                   fontSize: 13.0),
                                             ),
                                           ),
@@ -136,7 +136,7 @@ class Body extends StatelessWidget {
                                           child: Container(
                                             width: constraints.maxWidth * .6,
                                             decoration: BoxDecoration(
-                                              color: Colors.green,
+                                              color: ColorConstant.primaryGreen,
                                               borderRadius:
                                                   BorderRadius.circular(5),
                                               border: Border.all(

@@ -21,6 +21,7 @@ class ColorConstant {
   static Color? grey = fromHex('#cfcfcf');
   static Color? gray94 = fromHex('#f0f0f0');
   static Color? flashWhite = fromHex('#EEEEEE');
+  static Color? black = fromHex('##000000');
 
 // takes a  hexadecimal string
   static Color? fromHex(String hexString) {
