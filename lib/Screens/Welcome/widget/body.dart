@@ -117,7 +117,7 @@ class Body extends StatelessWidget {
                                             child: const Text(
                                               'Get Started',
                                               style: TextStyle(
-                                                  color: ColorConstant.black,
+                                                  color: Colors.black,
                                                   fontSize: 13.0),
                                             ),
                                           ),

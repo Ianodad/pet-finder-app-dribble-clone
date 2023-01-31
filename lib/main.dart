@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: ColorConstant.primaryGreen,
         scaffoldBackgroundColor: ColorConstant.flashWhite,
+        fontFamily: 'Montserrat',
       ),
       home: const WelcomeScreen(),
     );

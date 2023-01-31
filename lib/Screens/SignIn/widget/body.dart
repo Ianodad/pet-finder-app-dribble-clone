@@ -23,148 +23,175 @@ class Body extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: size.width * .1),
-              Text("Hello Welcome Back"),
+              Text(
+                "Hello Welcome Back",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
               SizedBox(height: size.width * .1),
               Text("Sign in to continue"),
               SizedBox(height: size.width * .1),
-              CardBody(
-                child: LayoutBuilder(
-                  builder: (context, constraints) => Container(
-                    height: constraints.maxHeight,
-                    // decoration: BoxDecoration(
-                    //   border:
-                    //       Border.all(color: Colors.black, width: borderWidth),
-                    // ),
-                    margin: EdgeInsets.only(right: 20.0, left: 20.0, top: 40.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Form(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Email"),
-                                SizedBox(height: constraints.maxHeight * .03),
-                                emailField(),
-                                SizedBox(height: constraints.maxHeight * .03),
-                                Text("Password"),
-                                SizedBox(height: constraints.maxHeight * .03),
-                                passwordsField(),
-                                SizedBox(height: constraints.maxHeight * .05),
-                                submitButton(),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                top: 6,
-                                left: 24,
-                                child: Container(
-                                  width: constraints.maxWidth * 0.78,
-                                  height: 45,
-                                  // color: Colors.yellow,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                        color: Colors.black, width: 2),
-                                  ),
+              Transform.rotate(
+                angle: -.022,
+                child: CardBody(
+                  child: Transform.rotate(
+                    angle: .022,
+                    child: LayoutBuilder(
+                      builder: (context, constraints) => Container(
+                        height: constraints.maxHeight,
+                        // decoration: BoxDecoration(
+                        //   border:
+                        //       Border.all(color: Colors.black, width: borderWidth),
+                        // ),
+                        margin:
+                            EdgeInsets.only(right: 20.0, left: 20.0, top: 40.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              flex: 3,
+                              child: Form(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Email"),
+                                    SizedBox(
+                                        height: constraints.maxHeight * .03),
+                                    emailField(),
+                                    SizedBox(
+                                        height: constraints.maxHeight * .03),
+                                    Text("Password"),
+                                    SizedBox(
+                                        height: constraints.maxHeight * .03),
+                                    passwordsField(),
+                                    SizedBox(
+                                        height: constraints.maxHeight * .05),
+                                    submitButton(),
+                                  ],
                                 ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Stack(
                                 children: [
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      minimumSize:
-                                          Size(constraints.maxWidth * 0.40, 45),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.horizontal(
-                                          // right: Radius.circular(10),
-                                          left: Radius.circular(10),
-                                        ),
-                                      ),
-                                      side: BorderSide(
-                                          color: Colors.black, width: 2),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/google-logo.png",
-                                          width: 17,
-                                        ),
-                                        Text("Gmail"),
-                                      ],
-                                    ),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      minimumSize:
-                                          Size(constraints.maxWidth * 0.40, 45),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.horizontal(
-                                          right: Radius.circular(10),
-                                          // left: Radius.circular(10),
-                                        ),
-                                        side: BorderSide(
+                                  Positioned(
+                                    top: 6,
+                                    left: 24,
+                                    child: Container(
+                                      width: constraints.maxWidth * 0.78,
+                                      height: 45,
+                                      // color: Colors.yellow,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(12),
+                                        border: Border.all(
                                             color: Colors.black, width: 2),
                                       ),
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/facebook-logo.png",
-                                          width: 17,
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              ColorConstant.primaryRed,
+                                          minimumSize: Size(
+                                              constraints.maxWidth * 0.40, 45),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.horizontal(
+                                              // right: Radius.circular(10),
+                                              left: Radius.circular(10),
+                                            ),
+                                          ),
+                                          side: BorderSide(
+                                              color: Colors.black, width: 2),
                                         ),
-                                        SizedBox(
-                                            width: constraints.maxWidth * .01),
-                                        Text("Facebook"),
-                                      ],
-                                    ),
-                                  )
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/google-logo.png",
+                                              width: 17,
+                                            ),
+                                            SizedBox(
+                                                width:
+                                                    constraints.maxWidth * .01),
+                                            Text("Gmail"),
+                                          ],
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              ColorConstant.primaryYellow,
+                                          minimumSize: Size(
+                                              constraints.maxWidth * 0.40, 45),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.horizontal(
+                                              right: Radius.circular(10),
+                                              // left: Radius.circular(10),
+                                            ),
+                                            side: BorderSide(
+                                                color: Colors.black, width: 2),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/facebook-logo.png",
+                                              width: 17,
+                                            ),
+                                            SizedBox(
+                                                width:
+                                                    constraints.maxWidth * .01),
+                                            Text("Facebook"),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Stack(
-                            children: [
-                              Text.rich(
-                                textAlign: TextAlign.center,
-                                TextSpan(
-                                    text: 'by continuing you accept our ',
-                                    children: [
-                                      TextSpan(
-                                          text: 'Terms',
-                                          style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                          )),
-                                      TextSpan(text: ' and '),
-                                      TextSpan(
-                                          text: 'Condition Privacy Policy',
-                                          style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
-                                          )),
-                                    ]),
+                            ),
+                            Expanded(
+                              child: Stack(
+                                children: [
+                                  Text.rich(
+                                    textAlign: TextAlign.center,
+                                    TextSpan(
+                                        text: 'by continuing you accept our ',
+                                        children: [
+                                          TextSpan(
+                                              text: 'Terms',
+                                              style: TextStyle(
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              )),
+                                          TextSpan(text: ' and '),
+                                          TextSpan(
+                                              text: 'Condition Privacy Policy',
+                                              style: TextStyle(
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              )),
+                                        ]),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -258,6 +285,7 @@ Widget submitButton() {
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
+              backgroundColor: ColorConstant.primaryGreen,
               minimumSize: Size(constraints.maxWidth * 0.90, 45),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
