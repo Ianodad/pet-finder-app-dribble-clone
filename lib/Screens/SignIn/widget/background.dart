@@ -12,6 +12,7 @@ class Background extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SizedBox(
         height: size.height,
         width: double.infinity,
