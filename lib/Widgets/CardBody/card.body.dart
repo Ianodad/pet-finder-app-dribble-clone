@@ -4,8 +4,12 @@ class CardBody extends StatelessWidget {
   const CardBody({
     super.key,
     required this.child,
+    required this.cardWidth,
+    required this.cardHeight,
   });
   final Widget child;
+  final double cardWidth;
+  final double cardHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +19,8 @@ class CardBody extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: size.height * .70,
-          width: size.width * .97,
+          height: size.height * cardHeight,
+          width: size.width * cardWidth,
           decoration: BoxDecoration(
             // color: Colors.white,
             borderRadius: BorderRadius.circular(30),
