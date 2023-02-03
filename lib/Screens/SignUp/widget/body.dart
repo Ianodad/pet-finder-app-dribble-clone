@@ -31,15 +31,15 @@ class Body extends StatelessWidget {
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: size.width * .1),
+              SizedBox(height: size.width * .05),
               const Text("Want know where you pet is at all times "),
-              SizedBox(height: size.width * .1),
+              SizedBox(height: size.width * .05),
               Transform.rotate(
                 angle: -.022,
                 child: SingleChildScrollView(
                   physics: const ClampingScrollPhysics(),
                   child: CardBody(
-                    cardHeight: .75,
+                    cardHeight: .80,
                     cardWidth: .97,
                     child: Transform.rotate(
                       angle: .022,
@@ -51,47 +51,51 @@ class Body extends StatelessWidget {
                           //       Border.all(color: Colors.black, width: borderWidth),
                           // ),
                           margin: const EdgeInsets.only(
-                              right: 20.0, left: 20.0, top: 40.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                flex: 4,
-                                child: SignUpForm(
-                                  constraints: constraints,
+                              right: 20.0, left: 20.0, top: 30.0),
+                          child: Expanded(
+                            flex: 5,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  flex: 5,
+                                  child: SignUpForm(
+                                    constraints: constraints,
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                child: Stack(
-                                  children: [
-                                    Text.rich(
-                                      textAlign: TextAlign.center,
-                                      TextSpan(
-                                        text: 'Already have an account? ',
-                                        children: [
-                                          TextSpan(
-                                            text: 'Sign In',
-                                            recognizer: TapGestureRecognizer()
-                                              ..onTap = () => Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) {
-                                                        return const SigninScreen();
-                                                      },
+                                Expanded(
+                                  flex: 1,
+                                  child: Stack(
+                                    children: [
+                                      Text.rich(
+                                        textAlign: TextAlign.center,
+                                        TextSpan(
+                                          text: 'Already have an account? ',
+                                          children: [
+                                            TextSpan(
+                                              text: 'Sign In',
+                                              recognizer: TapGestureRecognizer()
+                                                ..onTap = () => Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) {
+                                                          return const SigninScreen();
+                                                        },
+                                                      ),
                                                     ),
-                                                  ),
-                                            style: const TextStyle(
-                                              decoration:
-                                                  TextDecoration.underline,
+                                              style: const TextStyle(
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),

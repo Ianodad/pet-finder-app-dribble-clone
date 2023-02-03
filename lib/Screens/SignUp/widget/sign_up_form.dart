@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 
 import "package:pet_finder_app/mixins/validation.dart";
@@ -11,8 +13,12 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
   final BoxConstraints constraints;
   final formKey = GlobalKey<FormState>();
 
+  String username = '';
   String email = '';
-  String password = '';
+  String phonenumber = '';
+
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +27,9 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Text("Username"),
+          userNameField(),
+          SizedBox(height: constraints.maxHeight * .03),
           const Text("Email"),
           SizedBox(height: constraints.maxHeight * .03),
           emailField(),
@@ -28,10 +37,43 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
           const Text("Password"),
           SizedBox(height: constraints.maxHeight * .03),
           passwordsField(),
-          SizedBox(height: constraints.maxHeight * .05),
+          SizedBox(height: constraints.maxHeight * .03),
+          const Text("Confirm Password"),
+          SizedBox(height: constraints.maxHeight * .03),
+          confirmPasswordField(),
+          SizedBox(height: constraints.maxHeight * .04),
           submitButton(),
         ],
       ),
+    );
+  }
+
+  Widget userNameField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Username",
+        hintText: 'username',
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        suffixIcon: const Icon(
+          Icons.check_circle,
+          color: Colors.green,
+        ),
+        contentPadding: const EdgeInsets.only(
+          top: 14.0,
+          bottom: 14.0,
+          left: 14.0,
+          right: 14.0,
+        ),
+        border: const OutlineInputBorder(),
+        filled: true,
+        fillColor: Colors.grey.shade100,
+      ),
+      onSaved: (value) {
+        print(value);
+      },
     );
   }
 
@@ -66,9 +108,41 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
     );
   }
 
+  Widget phoneNumberField() {
+    return TextFormField(
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        labelText: "Phone Number",
+        hintText: '+0701 000 000',
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        suffixIcon: const Icon(
+          Icons.check_circle,
+          color: Colors.green,
+        ),
+        contentPadding: const EdgeInsets.only(
+          top: 14.0,
+          bottom: 14.0,
+          left: 14.0,
+          right: 14.0,
+        ),
+        border: const OutlineInputBorder(),
+        filled: true,
+        fillColor: Colors.grey.shade100,
+      ),
+      validator: validatePhoneNumber,
+      onSaved: (value) {
+        print(value);
+      },
+    );
+  }
+
   Widget passwordsField() {
     return TextFormField(
       obscureText: true,
+      controller: _password,
       decoration: InputDecoration(
         labelText: "Enter Password",
         hintText: "Password",
@@ -93,6 +167,44 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
         fillColor: Colors.grey.shade100,
       ),
       validator: validatePassword,
+      onSaved: (value) {
+        print(value);
+      },
+    );
+  }
+
+  Widget confirmPasswordField() {
+    return TextFormField(
+      obscureText: true,
+      controller: _confirmpassword,
+      decoration: InputDecoration(
+        labelText: "Confirm Password",
+        hintText: "Password",
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        suffixIcon: const Icon(
+          Icons.check_circle,
+          color: Colors.green,
+        ),
+        contentPadding: const EdgeInsets.only(
+          top: 14.0,
+          bottom: 14.0,
+          left: 14.0,
+          right: 14.0,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        filled: true,
+        fillColor: Colors.grey.shade100,
+      ),
+      validator: (value) {
+        if (_password.text != _confirmpassword.text) {
+          return "Password does not match";
+        }
+      },
       onSaved: (value) {
         print(value);
       },
