@@ -238,6 +238,7 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.reset();
+                  
                 }
                 // print(formKey.currentState!.validate());
               },

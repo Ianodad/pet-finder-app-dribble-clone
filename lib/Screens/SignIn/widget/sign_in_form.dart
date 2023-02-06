@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import "package:pet_finder_app/mixins/validation.dart";
 import 'package:pet_finder_app/utils/color_constants.dart';
 
+import 'package:pet_finder_app/Screens/Home/home.dart';
+import 'package:dotted_border/dotted_border.dart';
+
 class SignInForm extends StatelessWidget with ValidationMixin {
   SignInForm({
     Key? key,
@@ -79,7 +82,7 @@ class SignInForm extends StatelessWidget with ValidationMixin {
         ),
         suffixIcon: const Icon(
           Icons.check_circle,
-          color:  Colors.green,
+          color: Colors.green,
         ),
         contentPadding: const EdgeInsets.only(
           top: 14.0,
@@ -126,7 +129,23 @@ class SignInForm extends StatelessWidget with ValidationMixin {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.reset();
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) {
+                  //       return const HomeScreen();
+                  //     },
+                  //   ),
+                  // );
                 }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const HomeScreen();
+                    },
+                  ),
+                );
                 // print(formKey.currentState!.validate());
               },
               style: ElevatedButton.styleFrom(
