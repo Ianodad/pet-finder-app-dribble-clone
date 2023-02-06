@@ -21,87 +21,110 @@ class Body extends StatelessWidget {
         child: SizedBox(
           height: size.height * .9,
           width: size.width * .9,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
             children: [
-              const Text(
-                "Register",
-                style: TextStyle(
+              Positioned(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorConstant.primaryGreen,
+                    // fixedSize: Size(size.width * 0.02, 30),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    side: const BorderSide(color: Colors.black, width: 2),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back,
                     color: Colors.black,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
-              SizedBox(height: size.width * .05),
-              const Text("Want know where you pet is at all times "),
-              SizedBox(height: size.width * .05),
-              Transform.rotate(
-                angle: -.022,
-                child: SingleChildScrollView(
-                  physics: const ClampingScrollPhysics(),
-                  child: CardBody(
-                    cardHeight: .80,
-                    cardWidth: .97,
-                    child: Transform.rotate(
-                      angle: .022,
-                      child: LayoutBuilder(
-                        builder: (context, constraints) => Container(
-                          height: constraints.maxHeight,
-                          // decoration: BoxDecoration(
-                          //   border:
-                          //       Border.all(color: Colors.black, width: borderWidth),
-                          // ),
-                          margin: const EdgeInsets.only(
-                              right: 20.0, left: 20.0, top: 30.0),
-                          child: Expanded(
-                            flex: 5,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SignUpForm(
-                                    constraints: constraints,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Register",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: size.width * .05),
+                  const Text("Want know where you pet is at all times "),
+                  SizedBox(height: size.width * .05),
+                  Transform.rotate(
+                    angle: -.022,
+                    child: SingleChildScrollView(
+                      physics: const ClampingScrollPhysics(),
+                      child: CardBody(
+                        cardHeight: .74,
+                        cardWidth: .97,
+                        child: Transform.rotate(
+                          angle: .022,
+                          child: LayoutBuilder(
+                            builder: (context, constraints) => Container(
+                              height: constraints.maxHeight,
+                              // decoration: BoxDecoration(
+                              //   border:
+                              //       Border.all(color: Colors.black, width: borderWidth),
+                              // ),
+                              margin: const EdgeInsets.only(
+                                  right: 20.0, left: 20.0, top: 30.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    flex: 0,
+                                    child: SignUpForm(
+                                      constraints: constraints,
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Stack(
-                                    children: [
-                                      Text.rich(
-                                        textAlign: TextAlign.center,
-                                        TextSpan(
-                                          text: 'Already have an account? ',
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sign In',
-                                              recognizer: TapGestureRecognizer()
-                                                ..onTap = () => Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) {
-                                                          return const SigninScreen();
-                                                        },
-                                                      ),
-                                                    ),
-                                              style: const TextStyle(
-                                                decoration:
-                                                    TextDecoration.underline,
+                                  Expanded(
+                                    flex: 1,
+                                    child: Stack(
+                                      children: [
+                                        Text.rich(
+                                          textAlign: TextAlign.center,
+                                          TextSpan(
+                                            text: 'Already have an account? ',
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sign In',
+                                                recognizer:
+                                                    TapGestureRecognizer()
+                                                      ..onTap =
+                                                          () => Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) {
+                                                                    return const SigninScreen();
+                                                                  },
+                                                                ),
+                                                              ),
+                                                style: const TextStyle(
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
             ],
           ),

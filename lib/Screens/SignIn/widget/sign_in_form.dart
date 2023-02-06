@@ -79,7 +79,7 @@ class SignInForm extends StatelessWidget with ValidationMixin {
         ),
         suffixIcon: const Icon(
           Icons.check_circle,
-          color: Colors.green,
+          color:  Colors.green,
         ),
         contentPadding: const EdgeInsets.only(
           top: 14.0,

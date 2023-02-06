@@ -28,6 +28,7 @@ class SignUpForm extends StatelessWidget with ValidationMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text("Username"),
+          SizedBox(height: constraints.maxHeight * .03),
           userNameField(),
           SizedBox(height: constraints.maxHeight * .03),
           const Text("Email"),
