@@ -17,7 +17,9 @@ class Body extends StatelessWidget {
       child: Column(children: [
         userInfoMenu(),
         SizedBox(height: size.height * .04),
-        Expanded(flex: 1, child: searchBar())
+        Expanded(flex: 0, child: searchBar()),
+        SizedBox(height: size.height * .03),
+        Expanded(flex: 0, child: categoryHeader())
       ]),
     );
   }
@@ -25,7 +27,7 @@ class Body extends StatelessWidget {
 
 Widget userInfoMenu() {
   return Container(
-    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+    padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -63,51 +65,71 @@ Widget userInfoMenu() {
 Widget searchBar() {
   const widthPercent = 0.90;
   return LayoutBuilder(
-    builder: (context, constraints) => SizedBox(
-      width: constraints.maxWidth,
-      child: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          Positioned(
-            top: 3,
-            left: 23,
-            child: Container(
-              width: constraints.maxWidth * widthPercent,
-              height: 55,
-              // color: Colors.yellow,
+    builder: (context, constraints) => Transform.rotate(
+      angle: -0.015,
+      child: SizedBox(
+        width: constraints.maxWidth,
+        height: 60,
+        child: Stack(
+          alignment: AlignmentDirectional.topCenter,
+          children: [
+            Positioned(
+              top: 3,
+              left: 23,
+              child: Container(
+                width: constraints.maxWidth * widthPercent,
+                height: 55,
+                // color: Colors.yellow,
+                decoration: BoxDecoration(
+                  color: ColorConstant.primaryYellow,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.black, width: 2),
+                ),
+              ),
+            ),
+            Container(
+              // color: ColorConstant.flashWhite,
               decoration: BoxDecoration(
-                color: ColorConstant.primaryYellow,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: Colors.black, width: 2),
               ),
-            ),
-          ),
-          Container(
-            // color: ColorConstant.flashWhite,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.black, width: 2),
-            ),
-            width: constraints.maxWidth * widthPercent,
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: const Icon(
-                  Icons.search_outlined,
-                  color: Colors.black,
-                ),
-                contentPadding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                hintText: "Search pet",
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(color: Colors.black, width: 4.0),
+              width: constraints.maxWidth * widthPercent,
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(
+                    Icons.search_outlined,
+                    color: Colors.black,
+                  ),
+                  contentPadding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                  hintText: "Search pet",
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: Colors.black, width: 4.0),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+    ),
+  );
+}
+
+Widget categoryHeader() {
+  return Container(
+    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Pet Category"),
+        SvgPicture.asset(
+          "assets/images/dots.svg",
+          width: 20,
+        ),
+      ],
     ),
   );
 }
