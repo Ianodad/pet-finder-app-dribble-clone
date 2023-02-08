@@ -3,7 +3,12 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pet_finder_app/models/category.dart';
 import 'package:pet_finder_app/utils/color_constants.dart';
+
+import 'package:pet_finder_app/Screens/Home/widget/categoryCard.dart';
+
+import 'package:pet_finder_app/data/category.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -19,7 +24,8 @@ class Body extends StatelessWidget {
         SizedBox(height: size.height * .04),
         Expanded(flex: 0, child: searchBar()),
         SizedBox(height: size.height * .03),
-        Expanded(flex: 0, child: categoryHeader())
+        Expanded(flex: 0, child: categoryHeader()),
+        CategoryCard()
       ]),
     );
   }
@@ -131,5 +137,22 @@ Widget categoryHeader() {
         ),
       ],
     ),
+  );
+}
+
+Widget gridSystem() {
+  return GridView(
+    // ignore: sort_child_properties_last
+    children: CATEGORY_DATA
+        .map(
+          (category) => CategoryCard(category.id, category.title,
+              category.total, category.image, category.color),
+        )
+        .toList(),
+    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 20,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20),
   );
 }
