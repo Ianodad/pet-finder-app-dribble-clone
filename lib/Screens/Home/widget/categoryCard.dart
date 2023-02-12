@@ -1,21 +1,26 @@
-// ignore_for_file: file_names, use_key_in_widget_constructors, non_constant_identifier_names
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, prefer_const_constructors_in_immutables, prefer_const_constructors
+// ignore_for_file: file_names, use_key_in_widget_constructors, non_constant_identifier_names, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard(
+  CategoryCard({
+    Key? key,
     this.id,
     this.title,
     this.total,
     this.image,
-    this.color,
-  );
+    this.avatarColor,
+  });
 
   final String? id;
   final String? title;
   final int? total;
   final String? image;
-  final Color? color;
+  final Color? avatarColor;
+
+  String get stringTotal => '$total';
+  // Color? get colorItem => color;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +28,7 @@ class CategoryCard extends StatelessWidget {
 
     return Container(
       width: size.width / 2 - 2,
+      height: 50,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -31,37 +37,34 @@ class CategoryCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             flex: 2,
             child: CircleAvatar(
               radius: 30,
               backgroundColor: Colors.black,
               child: CircleAvatar(
-                backgroundColor: color,
+                backgroundColor: avatarColor,
                 radius: 28,
               ),
             ),
           ),
           Expanded(
             flex: 3,
-            child: Container(
-              color: Colors.pink,
-              child: Column(
-                children: const [
-                  Text(
-                    title!,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      // styling the text
-                      fontSize: 16.0, //the size of the text
-                      fontWeight: FontWeight.bold, // font weight
-                    ), //text color
-                  ),
-                  // Row(
-                  //   children: [Text("Total"), Text("$total")],
-                  // ),
-                ],
-              ),
+            child: Column(
+              children: [
+                Text(
+                  title!,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    // styling the text
+                    fontSize: 16.0, //the size of the text
+                    fontWeight: FontWeight.bold, // font weight
+                  ), //text color
+                ),
+                Row(
+                  children: [Text("Total"), Text(stringTotal)],
+                ),
+              ],
             ),
           )
         ],

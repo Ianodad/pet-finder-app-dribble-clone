@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, dead_code
 
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
@@ -25,7 +25,12 @@ class Body extends StatelessWidget {
         Expanded(flex: 0, child: searchBar()),
         SizedBox(height: size.height * .03),
         Expanded(flex: 0, child: categoryHeader()),
-        CategoryCard()
+        // CategoryCard("D01", "Hamster", 200, "", Colors.orange)
+        // gridSystem()
+        Expanded(
+          // wrap in Expanded
+          child: gridSystem(),
+        )
       ]),
     );
   }
@@ -141,18 +146,25 @@ Widget categoryHeader() {
 }
 
 Widget gridSystem() {
-  return GridView(
-    // ignore: sort_child_properties_last
-    children: CATEGORY_DATA
-        .map(
-          (category) => CategoryCard(category.id, category.title,
-              category.total, category.image, category.color),
-        )
-        .toList(),
-    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 20,
-        childAspectRatio: 3 / 2,
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 20),
+  return GridView.builder(
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      mainAxisSpacing: 20,
+      crossAxisCount: 2,
+      crossAxisSpacing: 20,
+      childAspectRatio: 2,
+    ),
+    itemCount: CATEGORY_DATA.length,
+    itemBuilder: (context, index) {
+      final category = CATEGORY_DATA[index];
+      return CategoryCard(
+          id: category.id!,
+          title: category.title!,
+          total: category.total,
+          image: category.image,
+          avatarColor: category.color);
+    },
   );
 }
+
+// CategoryCard(id: CATEGORY_DATA[index].id!, title: CATEGORY_DATA[index].title!,
+//               total: CATEGORY_DATA[index].total, image: CATEGORY_DATA[index].image, color :CATEGORY_DATA[index].color),
