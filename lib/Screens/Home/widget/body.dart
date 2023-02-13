@@ -129,8 +129,7 @@ Widget searchBar() {
   );
 }
 
-Widget categoryHeader() {
-  return Container(
+Widget categoryHeader() => Container(
     padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,7 +142,6 @@ Widget categoryHeader() {
       ],
     ),
   );
-}
 
 Widget gridSystem() {
   return GridView.builder(
@@ -156,7 +154,10 @@ Widget gridSystem() {
     itemCount: CATEGORY_DATA.length,
     itemBuilder: (context, index) {
       final category = CATEGORY_DATA[index];
+      final count = index + 1;
       return CategoryCard(
+          // key: '$index',
+          key: Key('$count'),
           id: category.id!,
           title: category.title!,
           total: category.total,
